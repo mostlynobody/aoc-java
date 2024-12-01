@@ -178,3 +178,10 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+### Advent of Code ###
+
+# Ignore input and solution files that are used as test resources
+solution*/**/resources/input
+solution*/**/resources/solution.json
+
