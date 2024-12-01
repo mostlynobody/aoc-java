@@ -5,6 +5,6 @@ import io.micronaut.core.annotation.Nullable;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable
-public record SessionCookie(@JsonProperty("id") String id,
-                            @Nullable @JsonProperty("value") String value) {
+public record SessionCookieJson(@JsonProperty("id") String id,
+                                @Nullable @JsonProperty("value") String value) {
 }

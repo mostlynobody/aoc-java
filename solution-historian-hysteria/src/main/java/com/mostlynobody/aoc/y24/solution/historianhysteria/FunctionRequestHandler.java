@@ -2,8 +2,8 @@ package com.mostlynobody.aoc.y24.solution.historianhysteria;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.records.Input;
-import com.mostlynobody.aoc.y24.shared.records.Solution;
+import com.mostlynobody.aoc.y24.shared.records.InputJson;
+import com.mostlynobody.aoc.y24.shared.records.SolutionJson;
 import com.mostlynobody.aoc.y24.shared.utils.Utils;
 import io.micronaut.function.aws.MicronautRequestHandler;
 import io.micronaut.json.JsonMapper;
@@ -16,8 +16,8 @@ import java.util.Map;
 
 import static java.lang.Math.abs;
 
-@SerdeImport(Input.class)
-@SerdeImport(Solution.class)
+@SerdeImport(InputJson.class)
+@SerdeImport(SolutionJson.class)
 public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     @Inject
@@ -26,11 +26,11 @@ public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayPr
     @Override
     public APIGatewayProxyResponseEvent execute(APIGatewayProxyRequestEvent input) {
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
-        Input inputJson;
+        InputJson inputJson;
 
         String requestBody = input.getBody();
         try {
-            inputJson = objectMapper.readValue(requestBody, Input.class);
+            inputJson = objectMapper.readValue(requestBody, InputJson.class);
         } catch (IOException e) {
             response.setStatusCode(400);
             response.setBody(e.getMessage());
@@ -57,7 +57,7 @@ public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayPr
         }
 
         try {
-            String responseBody = objectMapper.writeValueAsString(new Solution(String.valueOf(silver), String.valueOf(gold)));
+            String responseBody = objectMapper.writeValueAsString(new SolutionJson(String.valueOf(silver), String.valueOf(gold)));
             response.setStatusCode(200);
             response.setBody(responseBody);
             return response;

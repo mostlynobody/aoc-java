@@ -2,7 +2,7 @@ package com.mostlynobody.aoc.y24.api.sessioncookie.update;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.records.SessionCookie;
+import com.mostlynobody.aoc.y24.shared.records.SessionCookieJson;
 import io.micronaut.json.JsonMapper;
 import io.micronaut.serde.annotation.SerdeImport;
 import org.junit.jupiter.api.AfterAll;
@@ -26,7 +26,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-@SerdeImport(SessionCookie.class)
+@SerdeImport(SessionCookieJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FunctionRequestHandlerTest {
 
@@ -79,9 +79,9 @@ public class FunctionRequestHandlerTest {
 
     @Test
     void testExecute_Success() throws Exception {
-        SessionCookie sessionCookie = new SessionCookie("adventofcode.com", "my-cookie");
+        SessionCookieJson sessionCookieJson = new SessionCookieJson("adventofcode.com", "my-cookie");
 
-        String requestBody = jsonMapper.writeValueAsString(sessionCookie);
+        String requestBody = jsonMapper.writeValueAsString(sessionCookieJson);
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent().withBody(requestBody);
 
 
@@ -117,8 +117,8 @@ public class FunctionRequestHandlerTest {
                 .build()).when(mockDynamoDbClient).putItem(Mockito.any(PutItemRequest.class));
         handler.dynamoDbClient = mockDynamoDbClient;
 
-        SessionCookie sessionCookie = new SessionCookie(null, null);
-        String requestBody = jsonMapper.writeValueAsString(sessionCookie);
+        SessionCookieJson sessionCookieJson = new SessionCookieJson(null, null);
+        String requestBody = jsonMapper.writeValueAsString(sessionCookieJson);
 
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent().withBody(requestBody);
         APIGatewayProxyResponseEvent response = handler.execute(requestEvent);

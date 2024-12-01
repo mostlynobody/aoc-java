@@ -4,6 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable
-public record Solution(@JsonProperty("silver") String silver,
-                       @JsonProperty("gold") String gold) {
+public record SolutionJson(@JsonProperty("silver") String silver,
+                           @JsonProperty("gold") String gold) {
 }

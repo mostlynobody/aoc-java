@@ -2,8 +2,8 @@ package com.mostlynobody.aoc.y24.solution.historianhysteria;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.records.Input;
-import com.mostlynobody.aoc.y24.shared.records.Solution;
+import com.mostlynobody.aoc.y24.shared.records.InputJson;
+import com.mostlynobody.aoc.y24.shared.records.SolutionJson;
 import com.mostlynobody.aoc.y24.shared.utils.TestUtils;
 import io.micronaut.json.JsonMapper;
 import io.micronaut.serde.annotation.SerdeImport;
@@ -15,8 +15,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SerdeImport(Input.class)
-@SerdeImport(Solution.class)
+@SerdeImport(InputJson.class)
+@SerdeImport(SolutionJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FunctionRequestHandlerTest {
 
@@ -36,15 +36,15 @@ public class FunctionRequestHandlerTest {
         String inputFile = TestUtils.readResourceFile("input");
         String solutionFile = TestUtils.readResourceFile("solution.json");
 
-        Input inputJson = new Input("2024", "01", inputFile);
+        InputJson inputJson = new InputJson("historian-hysteria", inputFile);
         String requestBody = jsonMapper.writeValueAsString(inputJson);
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent().withBody(requestBody);
 
         APIGatewayProxyResponseEvent response = handler.execute(requestEvent);
         assertEquals(200, response.getStatusCode());
 
-        Solution resultJson = jsonMapper.readValue(response.getBody(), Solution.class);
-        Solution expectedJson = jsonMapper.readValue(solutionFile, Solution.class);
+        SolutionJson resultJson = jsonMapper.readValue(response.getBody(), SolutionJson.class);
+        SolutionJson expectedJson = jsonMapper.readValue(solutionFile, SolutionJson.class);
 
         assertEquals(resultJson.silver(), expectedJson.silver());
         assertEquals(resultJson.gold(), expectedJson.gold());

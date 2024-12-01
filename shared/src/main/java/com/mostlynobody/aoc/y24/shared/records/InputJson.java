@@ -5,7 +5,6 @@ import io.micronaut.core.annotation.Nullable;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable
-public record Input(@JsonProperty("year") String year,
-                    @JsonProperty("day") String day,
-                    @Nullable @JsonProperty("value") String value) {
+public record InputJson(@JsonProperty("id") String id,
+                        @Nullable @JsonProperty("value") String value) {
 }

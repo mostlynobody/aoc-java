@@ -2,7 +2,7 @@ package com.mostlynobody.aoc.y24.api.sessioncookie.get;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.records.SessionCookie;
+import com.mostlynobody.aoc.y24.shared.records.SessionCookieJson;
 import io.micronaut.json.JsonMapper;
 import io.micronaut.serde.annotation.SerdeImport;
 import org.junit.jupiter.api.AfterAll;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SerdeImport(SessionCookie.class)
+@SerdeImport(SessionCookieJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FunctionRequestHandlerTest {
 
@@ -102,8 +102,8 @@ public class FunctionRequestHandlerTest {
         insertSessionCookie(value);
 
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent();
-        SessionCookie sessionCookie = new SessionCookie(ENTRY_ID, value);
-        String expectedJson = jsonMapper.writeValueAsString(sessionCookie);
+        SessionCookieJson sessionCookieJson = new SessionCookieJson(ENTRY_ID, value);
+        String expectedJson = jsonMapper.writeValueAsString(sessionCookieJson);
 
         APIGatewayProxyResponseEvent response = handler.execute(requestEvent);
 
@@ -136,7 +136,7 @@ public class FunctionRequestHandlerTest {
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent();
         JsonMapper faultyJsonMapper = Mockito.mock(JsonMapper.class);
         try {
-            Mockito.when(faultyJsonMapper.writeValueAsString(Mockito.any(SessionCookie.class)))
+            Mockito.when(faultyJsonMapper.writeValueAsString(Mockito.any(SessionCookieJson.class)))
                     .thenThrow(new RuntimeException("Serialization error"));
         } catch (IOException e) {
             fail("Mock setup failed");

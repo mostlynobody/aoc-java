@@ -2,7 +2,7 @@ package com.mostlynobody.aoc.y24.api.sessioncookie.get;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.records.SessionCookie;
+import com.mostlynobody.aoc.y24.shared.records.SessionCookieJson;
 import io.micronaut.function.aws.MicronautRequestHandler;
 import io.micronaut.json.JsonMapper;
 import io.micronaut.serde.annotation.SerdeImport;
@@ -15,7 +15,7 @@ import software.amazon.awssdk.services.dynamodb.model.GetItemRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-@SerdeImport(SessionCookie.class)
+@SerdeImport(SessionCookieJson.class)
 public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     @Inject
@@ -37,9 +37,9 @@ public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayPr
                 String id = returnedItem.get("id").s();
                 String value = returnedItem.get("value").s();
 
-                SessionCookie sessionCookie = new SessionCookie(id, value);
+                SessionCookieJson sessionCookieJson = new SessionCookieJson(id, value);
 
-                String responseBody = objectMapper.writeValueAsString(sessionCookie);
+                String responseBody = objectMapper.writeValueAsString(sessionCookieJson);
 
                 response.setStatusCode(200);
                 response.setBody(responseBody);
