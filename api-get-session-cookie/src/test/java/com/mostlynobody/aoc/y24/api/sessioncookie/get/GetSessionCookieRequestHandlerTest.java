@@ -26,15 +26,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SerdeImport(SessionCookieJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class FunctionRequestHandlerTest {
+public class GetSessionCookieRequestHandlerTest {
 
     public static final String ENTRY_ID = "adventofcode.com";
     private static final String TABLE_NAME = "AdventOfCodeCookie";
 
     private LocalStackContainer localstack;
     private DynamoDbClient dynamoDbClient;
-    private FunctionRequestHandler handler;
+    private GetSessionCookieRequestHandler handler;
     private JsonMapper jsonMapper;
+
 
     @BeforeAll
     void setUp() {
@@ -48,9 +49,10 @@ public class FunctionRequestHandlerTest {
         createTable();
 
         jsonMapper = JsonMapper.createDefault();
-        handler = new FunctionRequestHandler();
+        handler = new GetSessionCookieRequestHandler();
         handler.objectMapper = jsonMapper;
         handler.dynamoDbClient = dynamoDbClient;
+        handler.tableName = TABLE_NAME;
     }
 
     @AfterAll
@@ -77,7 +79,7 @@ public class FunctionRequestHandlerTest {
 
     private void insertSessionCookie(String value) {
         Map<String, AttributeValue> item = new HashMap<>();
-        item.put("id", AttributeValue.builder().s(FunctionRequestHandlerTest.ENTRY_ID).build());
+        item.put("id", AttributeValue.builder().s(GetSessionCookieRequestHandlerTest.ENTRY_ID).build());
         item.put("value", AttributeValue.builder().s(value).build());
 
         PutItemRequest putItemRequest = PutItemRequest.builder()
@@ -89,7 +91,8 @@ public class FunctionRequestHandlerTest {
     }
 
     private void deleteSessionCookie() {
-        Map<String, AttributeValue> item = Map.of("id", AttributeValue.builder().s(FunctionRequestHandlerTest.ENTRY_ID)
+        Map<String, AttributeValue> item = Map.of("id", AttributeValue.builder()
+                .s(GetSessionCookieRequestHandlerTest.ENTRY_ID)
                 .build());
         DeleteItemRequest deleteItemRequest = DeleteItemRequest.builder().tableName(TABLE_NAME).key(item).build();
         dynamoDbClient.deleteItem(deleteItemRequest);
@@ -143,7 +146,7 @@ public class FunctionRequestHandlerTest {
         }
 
         APIGatewayProxyResponseEvent response;
-        try (FunctionRequestHandler faultyHandler = new FunctionRequestHandler()) {
+        try (GetSessionCookieRequestHandler faultyHandler = new GetSessionCookieRequestHandler()) {
             faultyHandler.objectMapper = faultyJsonMapper;
             faultyHandler.dynamoDbClient = dynamoDbClient;
 

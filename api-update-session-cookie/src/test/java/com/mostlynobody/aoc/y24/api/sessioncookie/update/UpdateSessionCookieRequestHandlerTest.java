@@ -28,12 +28,12 @@ import static org.mockito.Mockito.mock;
 
 @SerdeImport(SessionCookieJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class FunctionRequestHandlerTest {
+public class UpdateSessionCookieRequestHandlerTest {
 
     private static final String TABLE_NAME = "AdventOfCodeCookie";
     private LocalStackContainer localstack;
     private DynamoDbClient dynamoDbClient;
-    private FunctionRequestHandler handler;
+    private UpdateSessionCookieRequestHandler handler;
     private JsonMapper jsonMapper;
 
     @BeforeAll
@@ -50,9 +50,10 @@ public class FunctionRequestHandlerTest {
 
 
         jsonMapper = JsonMapper.createDefault();
-        handler = new FunctionRequestHandler();
+        handler = new UpdateSessionCookieRequestHandler();
         handler.objectMapper = jsonMapper;
         handler.dynamoDbClient = dynamoDbClient;
+        handler.tableName = TABLE_NAME;
     }
 
     @AfterAll
@@ -113,8 +114,8 @@ public class FunctionRequestHandlerTest {
     @Test
     void testExecute_DynamoDBError() throws IOException {
         DynamoDbClient mockDynamoDbClient = mock(DynamoDbClient.class);
-        Mockito.doThrow(SdkClientException.builder().message("DynamoDB error")
-                .build()).when(mockDynamoDbClient).putItem(Mockito.any(PutItemRequest.class));
+        Mockito.doThrow(SdkClientException.builder().message("DynamoDB error").build()).when(mockDynamoDbClient)
+                .putItem(Mockito.any(PutItemRequest.class));
         handler.dynamoDbClient = mockDynamoDbClient;
 
         SessionCookieJson sessionCookieJson = new SessionCookieJson(null, null);
@@ -125,6 +126,6 @@ public class FunctionRequestHandlerTest {
 
         assertEquals(500, response.getStatusCode());
         assertNotNull(response.getBody());
-        assertEquals("DynamoDB error", response.getBody());
+        assertTrue(response.getBody().contains("Internal Server Error"));
     }
 }

@@ -18,15 +18,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SerdeImport(InputJson.class)
 @SerdeImport(SolutionJson.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class FunctionRequestHandlerTest {
+public class HistorianHysteriaRequestHandlerTest {
 
-    private FunctionRequestHandler handler;
+    private HistorianHysteriaRequestHandler handler;
     private JsonMapper jsonMapper;
 
     @BeforeAll
     void setUp() {
         jsonMapper = JsonMapper.createDefault();
-        handler = new FunctionRequestHandler();
+        handler = new HistorianHysteriaRequestHandler();
         handler.objectMapper = jsonMapper;
     }
 

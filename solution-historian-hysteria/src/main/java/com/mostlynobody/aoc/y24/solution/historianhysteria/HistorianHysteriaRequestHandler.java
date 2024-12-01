@@ -18,7 +18,7 @@ import static java.lang.Math.abs;
 
 @SerdeImport(InputJson.class)
 @SerdeImport(SolutionJson.class)
-public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class HistorianHysteriaRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     @Inject
     JsonMapper objectMapper;
