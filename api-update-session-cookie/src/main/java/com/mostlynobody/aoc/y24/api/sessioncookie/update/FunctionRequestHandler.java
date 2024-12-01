@@ -2,9 +2,10 @@ package com.mostlynobody.aoc.y24.api.sessioncookie.update;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.mostlynobody.aoc.y24.shared.SessionCookie;
+import com.mostlynobody.aoc.y24.shared.records.SessionCookie;
 import io.micronaut.function.aws.MicronautRequestHandler;
 import io.micronaut.json.JsonMapper;
+import io.micronaut.serde.annotation.SerdeImport;
 import jakarta.inject.Inject;
 import software.amazon.awssdk.awscore.exception.AwsServiceException;
 import software.amazon.awssdk.core.exception.SdkClientException;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@SerdeImport(SessionCookie.class)
 public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     @Inject

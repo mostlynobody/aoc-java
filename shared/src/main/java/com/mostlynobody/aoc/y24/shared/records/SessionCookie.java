@@ -1,4 +1,4 @@
-package com.mostlynobody.aoc.y24.shared;
+package com.mostlynobody.aoc.y24.shared.records;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.micronaut.core.annotation.Nullable;
