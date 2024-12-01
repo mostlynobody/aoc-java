@@ -4,3 +4,4 @@ include("shared")
 
 // API Functions for interacting with adventofcode.com
 include("api-update-session-cookie")
+include("api-get-session-cookie")
