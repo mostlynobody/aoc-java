@@ -35,11 +35,11 @@ The lambda-ready jars should appear in `<module>/build/libs/<module>-lambda.jar`
 
 Each day has its own Micronaut function. Please consult this convenient table.
 
-| Day | Function                                                                                                                                                          |
-|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/solution/historianhysteria/HistorianHysteriaRequestHandler.java) |
-| 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/solution/rednosedreports/RedNosedReportsRequestHandler.java)       |
-| 03  | TBD...                                                                                                                                                            |
+| Day | Function                                                                                                                                                  |
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/service/historianhysteria/HistorianHysteriaService.java) |
+| 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/service/rednosedreports/RedNosedReportsService.java)       |
+| 03  | TBD...                                                                                                                                                    |
 
 ## To-Do List
 
