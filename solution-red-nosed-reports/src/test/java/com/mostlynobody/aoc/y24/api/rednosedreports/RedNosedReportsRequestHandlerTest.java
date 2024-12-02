@@ -126,9 +126,7 @@ class RedNosedReportsRequestHandlerTest {
         when(objectMapper.readValue(inputJsonString, InputJson.class)).thenReturn(inputJson);
         when(redNosedReportsService.solve("testInput")).thenThrow(new RuntimeException("Service Failed"));
 
-        RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
-            functionRequestHandler.execute(requestEvent);
-        });
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> functionRequestHandler.execute(requestEvent));
 
         assertEquals("Service Failed", thrown.getMessage());
 
