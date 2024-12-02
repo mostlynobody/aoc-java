@@ -44,11 +44,18 @@ public class UpdateSessionCookieRequestHandler extends MicronautRequestHandler<A
         SessionCookieJson sessionCookie;
         String requestBody = input.getBody();
 
+        if (requestBody == null || requestBody.isEmpty()) {
+            response.setStatusCode(400);
+            response.setBody("{\"error\": \"Missing or empty request body\"}.\"}");
+            return response;
+        }
+
         try {
             sessionCookie = objectMapper.readValue(requestBody, SessionCookieJson.class);
         } catch (IOException e) {
             response.setStatusCode(400);
-            response.setBody(e.getMessage());
+            logger.error(e.toString());
+            response.setBody("{\"error\": \"Malformed request body\"}.\"}");
             return response;
         }
 

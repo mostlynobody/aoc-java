@@ -100,7 +100,7 @@ public class UpdateSessionCookieRequestHandlerTest {
     }
 
     @Test
-    void testExecute_InvalidJson() {
+    void testExecute_InvalidBody() {
         String invalidJson = "{ invalid json }";
         APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent().withBody(invalidJson);
 
@@ -108,7 +108,18 @@ public class UpdateSessionCookieRequestHandlerTest {
 
         assertEquals(400, response.getStatusCode());
         assertNotNull(response.getBody());
-        assertTrue(response.getBody().contains("Unexpected character"));
+        assertTrue(response.getBody().contains("Malformed request body"));
+    }
+
+    @Test
+    void testExecute_MissingBody() {
+        APIGatewayProxyRequestEvent requestEvent = new APIGatewayProxyRequestEvent().withBody(null);
+
+        APIGatewayProxyResponseEvent response = handler.execute(requestEvent);
+
+        assertEquals(400, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertTrue(response.getBody().contains("Missing or empty request body"));
     }
 
     @Test
