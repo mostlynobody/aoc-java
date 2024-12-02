@@ -16,21 +16,30 @@ A needlessly verbose project for Advent of Code.
 Since puzzle inputs [are not be shared](https://adventofcode.com/2024/about), the solution tests are set up with files
 not pushed to git. **If you are _insane_ enough** to clone this repo and want to build it locally, you will have to
 ignore the test failures or add your own local inputs and
-solutions. Simply drop the `input` file into `<module>/src/test/resources`. Oh, and don't forget the `solution` JSON!
+solutions. Simply drop the `input` file into `<module>/src/test/resources`. Oh, and don't forget the `solution.json`!
+
+```json
+{
+  "silver": "0",
+  "gold": "1"
+}
+```
 
 ## Building
 
-Simply run `./gradlew build test shadowJar`
+Simply run `./gradlew clean build test shadowJar`
+
 The lambda-ready jars should appear in `<module>/build/libs/<module>-lambda.jar`
 
 ## Solution Modules
 
 Each day has its own Micronaut function. Please consult this convenient table.
 
-| Day | Function                                                                                                                                                 |
-|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/solution/historianhysteria/FunctionRequestHandler.java) |
-| 02  | TBD...                                                                                                                                                   |
+| Day | Function                                                                                                                                                          |
+|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/solution/historianhysteria/HistorianHysteriaRequestHandler.java) |
+| 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/solution/rednosedreports/RedNosedReportsRequestHandler.java)       |
+| 03  | TBD...                                                                                                                                                            |
 
 ## To-Do List
 
