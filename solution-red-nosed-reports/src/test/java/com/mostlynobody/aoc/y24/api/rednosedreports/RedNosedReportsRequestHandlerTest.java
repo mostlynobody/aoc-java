@@ -8,6 +8,7 @@ import com.mostlynobody.aoc.y24.shared.records.SolutionJson;
 import io.micronaut.json.JsonMapper;
 import io.micronaut.serde.annotation.SerdeImport;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SerdeImport(InputJson.class)
+@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 class RedNosedReportsRequestHandlerTest {
 
     private final JsonMapper objectMapper = mock(JsonMapper.class);
