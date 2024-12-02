@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("io.micronaut:micronaut-inject-java")
 
     implementation("com.amazonaws:aws-lambda-java-events")
     implementation("io.micronaut.aws:micronaut-aws-lambda-events-serde")
@@ -22,6 +23,8 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+    testImplementation("org.mockito:mockito-core:5.14.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
 }
 
 tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
