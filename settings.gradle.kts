@@ -10,3 +10,4 @@ include("api-get-input")
 // Solution functions that actually solve the provided input
 include("solution-historian-hysteria")
 include("solution-red-nosed-reports")
+include("solution-mull-it-over")
