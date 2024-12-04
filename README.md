@@ -40,7 +40,8 @@ Each day has its own Micronaut function. Please consult this convenient table.
 | 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/service/historianhysteria/HistorianHysteriaService.java) |
 | 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/service/rednosedreports/RedNosedReportsService.java)       |
 | 03  | [solution-mull-it-over](solution-mull-it-over/src/main/java/com/mostlynobody/aoc/y24/service/mullitover/MullItOverService.java)                           |
-| 04  | TBD...                                                                                                                                                    |
+| 04  | [solution-ceres-search](solution-ceres-search/src/main/java/com/mostlynobody/aoc/y24/service/ceressearch/CeresSearchService.java)                         |
+| 05  | TBD...                                                                                                                                                    |
 
 ## To-Do List
 
