@@ -41,7 +41,8 @@ Each day has its own Micronaut function. Please consult this convenient table.
 | 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/service/rednosedreports/RedNosedReportsService.java)       |
 | 03  | [solution-mull-it-over](solution-mull-it-over/src/main/java/com/mostlynobody/aoc/y24/service/mullitover/MullItOverService.java)                           |
 | 04  | [solution-ceres-search](solution-ceres-search/src/main/java/com/mostlynobody/aoc/y24/service/ceressearch/CeresSearchService.java)                         |
-| 05  | TBD...                                                                                                                                                    |
+| 05  | [solution-print-queue](solution-print-queue/src/main/java/com/mostlynobody/aoc/y24/service/printqueue/PrintQueueService.java)                             |
+| 06  | TBD...                                                                                                                                                    |
 
 ## To-Do List
 
