@@ -43,7 +43,8 @@ Each day has its own Micronaut function. Please consult this convenient table.
 | 04  | [solution-ceres-search](solution-ceres-search/src/main/java/com/mostlynobody/aoc/y24/service/ceressearch/CeresSearchService.java)                         |
 | 05  | [solution-print-queue](solution-print-queue/src/main/java/com/mostlynobody/aoc/y24/service/printqueue/PrintQueueService.java)                             |
 | 06  | [solution-guard-gallivant](solution-guard-gallivant/src/main/java/com/mostlynobody/aoc/y24/service/guardgallivant/GuardGallivantService.java)             |
-| 07  | TBD...                                                                                                                                                    |
+| 07  | [solution-bridge-repair](solution-bridge-repair/src/main/java/com/mostlynobody/aoc/y24/service/bridgerepair/BridgeRepairService.java)                     |
+| 08  | TBD...                                                                                                                                                    |
 
 ## To-Do List
 
