@@ -46,7 +46,8 @@ Each day has its own Micronaut function. Please consult this convenient table.
 | 07  | [solution-bridge-repair](solution-bridge-repair/src/main/java/com/mostlynobody/aoc/y24/service/bridgerepair/BridgeRepairService.java)                                 |
 | 08  | [solution-resonant-collinearity](solution-resonant-collinearity/src/main/java/com/mostlynobody/aoc/y24/service/resonantcollinearity/ResonantCollinearityService.java) |
 | 09  | [solution-disk-fragmenter](solution-disk-fragmenter/src/main/java/com/mostlynobody/aoc/y24/service/diskfragmenter/DiskFragmenterService.java)                         |
-| 10  | TBD...                                                                                                                                                                |
+| 10  | [solution-hoof-it](solution-hoof-it/src/main/java/com/mostlynobody/aoc/y24/service/hoofit/HoofItService.java)                                                         |
+| 11  | TBD...                                                                                                                                                                |
 
 ## To-Do List
 
