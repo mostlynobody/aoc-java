@@ -35,16 +35,18 @@ The lambda-ready jars should appear in `<module>/build/libs/<module>-lambda.jar`
 
 Each day has its own Micronaut function. Please consult this convenient table.
 
-| Day | Function                                                                                                                                                  |
-|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/service/historianhysteria/HistorianHysteriaService.java) |
-| 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/service/rednosedreports/RedNosedReportsService.java)       |
-| 03  | [solution-mull-it-over](solution-mull-it-over/src/main/java/com/mostlynobody/aoc/y24/service/mullitover/MullItOverService.java)                           |
-| 04  | [solution-ceres-search](solution-ceres-search/src/main/java/com/mostlynobody/aoc/y24/service/ceressearch/CeresSearchService.java)                         |
-| 05  | [solution-print-queue](solution-print-queue/src/main/java/com/mostlynobody/aoc/y24/service/printqueue/PrintQueueService.java)                             |
-| 06  | [solution-guard-gallivant](solution-guard-gallivant/src/main/java/com/mostlynobody/aoc/y24/service/guardgallivant/GuardGallivantService.java)             |
-| 07  | [solution-bridge-repair](solution-bridge-repair/src/main/java/com/mostlynobody/aoc/y24/service/bridgerepair/BridgeRepairService.java)                     |
-| 08  | TBD...                                                                                                                                                    |
+| Day | Function                                                                                                                                                              |
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 01  | [solution-historian-hysteria](solution-historian-hysteria/src/main/java/com/mostlynobody/aoc/y24/service/historianhysteria/HistorianHysteriaService.java)             |
+| 02  | [solution-red-nosed-reports](solution-red-nosed-reports/src/main/java/com/mostlynobody/aoc/y24/service/rednosedreports/RedNosedReportsService.java)                   |
+| 03  | [solution-mull-it-over](solution-mull-it-over/src/main/java/com/mostlynobody/aoc/y24/service/mullitover/MullItOverService.java)                                       |
+| 04  | [solution-ceres-search](solution-ceres-search/src/main/java/com/mostlynobody/aoc/y24/service/ceressearch/CeresSearchService.java)                                     |
+| 05  | [solution-print-queue](solution-print-queue/src/main/java/com/mostlynobody/aoc/y24/service/printqueue/PrintQueueService.java)                                         |
+| 06  | [solution-guard-gallivant](solution-guard-gallivant/src/main/java/com/mostlynobody/aoc/y24/service/guardgallivant/GuardGallivantService.java)                         |
+| 07  | [solution-bridge-repair](solution-bridge-repair/src/main/java/com/mostlynobody/aoc/y24/service/bridgerepair/BridgeRepairService.java)                                 |
+| 08  | [solution-resonant-collinearity](solution-resonant-collinearity/src/main/java/com/mostlynobody/aoc/y24/service/resonantcollinearity/ResonantCollinearityService.java) |
+| 09  | [solution-disk-fragmenter](solution-disk-fragmenter/src/main/java/com/mostlynobody/aoc/y24/service/diskfragmenter/DiskFragmenterService.java)                         |
+| 10  | TBD...                                                                                                                                                                |
 
 ## To-Do List
 
