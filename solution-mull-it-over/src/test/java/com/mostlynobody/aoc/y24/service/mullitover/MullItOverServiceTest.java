@@ -33,7 +33,7 @@ public class MullItOverServiceTest {
 
         SolutionJson result = mullItOverService.solve(input);
 
-        assertEquals(result.silver(), solutionJson.silver());
-        assertEquals(result.gold(), solutionJson.gold());
+        assertEquals(solutionJson.silver(), result.silver());
+        assertEquals(solutionJson.gold(), result.gold());
     }
 }
